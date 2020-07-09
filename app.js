@@ -1,9 +1,9 @@
 const request = require('request');
-const { accessKey } = require('./config.js')
-console.log(accessKey)
+require('dotenv').config();
+const ACCESS_KEY = process.env.ACCESS_KEY
 
-const url = 'http://api.weatherstack.com/current?access_key=&&query=37.8267,-122.4233';
+const url = `http://api.weatherstack.com/current?access_key=${ACCESS_KEY}&&query=37.8267,-122.4233`;
 
 request({ url: url, json: true }, (err, res) => {
-    console.log(res.body.current)
+    console.log(`It is currently ${res.body.current.temperature} degrees out. It feels like ${res.body.current.feelslike} out.`)
 })
