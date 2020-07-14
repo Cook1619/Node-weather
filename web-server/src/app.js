@@ -1,17 +1,13 @@
+const path = require('path');
 const express =  require('express');
+
 const app = express();
 
-app.get('/', (req,res) => {
-    res.send('<h1>Hello Express</h1>')
-})
+app.use(express.static(path.join(__dirname, '../public')))
 
-app.get('/help', (req,res) => {
-    res.send([{ name: 'Matt', age: 33}, { name: 'Danelle', age: 35}])
-})
+app.use('/help', express.static(path.join(__dirname, '../public/help.html')))
 
-app.get('/about', (req, res) => {
-    res.send('<h1>The about page!!</h1>')
-})
+app.use('/about', express.static(path.join(__dirname, '../public/about.html')))
 
 app.get('/weather', (req, res) => {
     res.send([{ forcast: "Sunny" , location:'Minneapolis'}, {forcast: "Rainy" , location:'Portland'}, {forcast: "Sunny" , location:'Salt Lake City'}])
