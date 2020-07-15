@@ -43,6 +43,22 @@ app.get('/weather', (req, res) => {
     res.send([{ forcast: "Sunny" , location:'Minneapolis'}, {forcast: "Rainy" , location:'Portland'}, {forcast: "Sunny" , location:'Salt Lake City'}])
 })
 
+app.get('/help/*', (req,res) => {
+    res.render('404', {
+        title: '404 Help',
+        name: 'Matt Cook',
+        errorMessage: 'Help article not found'
+    })
+})
+
+app.get('*', (req, res) => {
+    res.render('404', {
+        title: '404',
+        name: 'Matt Cook',
+        errorMessage: 'Page not found'
+    })
+})
+
 app.listen(3000, () => {
     console.log('Server is running')
 })
