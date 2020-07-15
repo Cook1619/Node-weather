@@ -2,9 +2,15 @@ const path = require('path');
 const express =  require('express');
 
 const app = express();
+// This lets you call the views folder whatever you want with handlebars
+// I used templates so I pointed it towards the template directory
+const viewsPath = path.join(__dirname, '../templates')
+const publicDirectoryPath = path.join(__dirname, '../public')
 
+// Setup handlebars engine and view location
 app.set('view engine', 'hbs')
-app.use(express.static(path.join(__dirname, '../public')))
+app.set('views', viewsPath)
+app.use(express.static(publicDirectoryPath))
 
 app.get('/', (req,res) => {
     res.render('index', {
