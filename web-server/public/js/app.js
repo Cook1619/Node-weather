@@ -1,22 +1,25 @@
 
 const weatherForm = document.querySelector('form')
 const search = document.querySelector('input')
+const messageOne = document.getElementById('message-one')
+const messageTwo = document.getElementById('message-two')
 
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault()
+    messageOne.textContent = 'Loading...'
+    messageTwo.textContent = ''
     fetch(`http://localhost:3000/weather?address=${search.value}`)
     .then((res) => {
         res.json()
         .then((data) => {
             if (data.error){
-                console.log(data.error)
+                messageOne.textContent = data.error
+                search.value = '';
             }else {
-                console.log(data.location)
-                console.log(data.forecast)
+                messageOne.textContent = data.location
+                messageTwo.textContent = data.forecast
+                search.value = '';
             }
         })
     })
-    setTimeout(() => {
-        search.value = '';
-    }, 500)
 })
