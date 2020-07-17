@@ -4,6 +4,7 @@ const search = document.querySelector('input')
 const messageOne = document.getElementById('message-one')
 const messageTwo = document.getElementById('message-two')
 const weatherCard = document.getElementsByClassName('static-card')[0]
+
 weatherCard.style.visibility = "hidden"
 
 weatherForm.addEventListener('submit', (e) => {
@@ -22,6 +23,7 @@ weatherForm.addEventListener('submit', (e) => {
                 weatherCard.style.visibility = "visible"
                 messageOne.textContent = data.location
                 messageTwo.textContent = data.forecast
+                document.getElementById('weatherIcon').src = data.img.img
                 search.value = '';
             }
         })

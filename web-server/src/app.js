@@ -2,6 +2,7 @@ const path = require("path");
 const express = require("express");
 const hbs = require("hbs");
 const forecast = require("./utils/forecast");
+const { newYorkForecast, portlandForecast, minneapolisForecast } = require("./utils/forecast")
 const geocode = require("./utils/geocode");
 
 const app = express();
@@ -51,29 +52,46 @@ app.get("/weather", (req, res) => {
     if (error) {
       return res.send({ error });
     }
-    forecast(latitude, longitude, (error, foreCastData) => {
+    forecast(latitude, longitude, (error, foreCastData, img) => {
       if (error) {
         return res.send({ error });
       }
       res.send({
         forecast: foreCastData,
         location,
+        img,
         address: req.query.address,
       });
     });
   });
 });
 
-app.get("/products", (req, res) => {
-  if (!req.query.search) {
-    return res.send({
-      error: "You must provide a search term",
-    });
-  }
-  res.send({
-    products: [],
+app.get("/weather/newyork", (req, res) => {
+  newYorkForecast((error, foreCastData) => {
+    if (error) {
+      return res.send({ error });
+    }
+    res.send({foreCastData})
   });
 });
+
+app.get("/weather/portland", (req, res) => {
+  portlandForecast((error, foreCastData) => {
+    if (error) {
+      return res.send({ error });
+    }
+    res.send({foreCastData})
+  });
+});
+
+app.get("/weather/minneapolis", (req, res) => {
+  minneapolisForecast((error, foreCastData) => {
+    if (error) {
+      return res.send({ error })
+    }
+    res.send({foreCastData})
+  })
+})
 
 app.get("/help/*", (req, res) => {
   res.render("404", {

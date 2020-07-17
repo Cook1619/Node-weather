@@ -14,7 +14,7 @@
 <body>
     <div class="main-content">
         {{>header}}
-        <p>Use this site for weather</p>
+        <p>Enter a city name of valid zip-code to check the weather</p>
 
         <form action="">
             <div class="input-group mb-3">
@@ -28,6 +28,7 @@
         <div class="card static-card bg-light mt-3" style="max-width: 18rem;">
             <div class="card-header text-dark">Daily Forecast</div>
             <div class="card-body">
+                <img src="" alt="weather-icon" id="weatherIcon">
                 <p class="card-text text-dark" id="message-one"></p>
                 <p class="card-text text-dark" id="message-two"></p>
             </div>
