@@ -29,3 +29,57 @@ weatherForm.addEventListener('submit', (e) => {
         })
     })
 })
+
+fetch(`http://localhost:3000/weather/portland`)
+.then((res) => {
+    res.json()
+    .then((data) => {
+        if (data.error){
+            weatherCard.style.visibility = "visible"
+            messageOne.textContent = data.error
+            search.value = '';
+        }else {
+            weatherCard.style.visibility = "visible"
+            messageOne.textContent = data.location
+            messageTwo.textContent = data.forecast
+            document.getElementById('weatherIcon').src = data.img.img
+            search.value = '';
+        }
+    })
+})
+
+fetch(`http://localhost:3000/weather/minneapolis`)
+.then((res) => {
+    res.json()
+    .then((data) => {
+        if (data.error){
+            weatherCard.style.visibility = "visible"
+            messageOne.textContent = data.error
+            search.value = '';
+        }else {
+            weatherCard.style.visibility = "visible"
+            messageOne.textContent = data.location
+            messageTwo.textContent = data.forecast
+            document.getElementById('weatherIcon').src = data.img.img
+            search.value = '';
+        }
+    })
+})
+
+fetch(`http://localhost:3000/weather/newyork`)
+.then((res) => {
+    res.json()
+    .then((data) => {
+        if (data.error){
+            weatherCard.style.visibility = "visible"
+            messageOne.textContent = data.error
+            search.value = '';
+        }else {
+            weatherCard.style.visibility = "visible"
+            messageOne.textContent = data.location
+            messageTwo.textContent = data.forecast
+            document.getElementById('weatherIcon').src = data.img.img
+            search.value = '';
+        }
+    })
+})
