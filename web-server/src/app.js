@@ -1,8 +1,7 @@
 const path = require("path");
 const express = require("express");
 const hbs = require("hbs");
-const forecast = require("./utils/forecast");
-const { newYorkForecast, portlandForecast, minneapolisForecast } = require("./utils/forecast")
+const { newYorkForecast, portlandForecast, minneapolisForecast, foreCast } = require("./utils/forecast")
 const geocode = require("./utils/geocode");
 
 const app = express();
@@ -52,7 +51,7 @@ app.get("/weather", (req, res) => {
     if (error) {
       return res.send({ error });
     }
-    forecast(latitude, longitude, (error, foreCastData, img) => {
+    foreCast(latitude, longitude, (error, foreCastData, img) => {
       if (error) {
         return res.send({ error });
       }

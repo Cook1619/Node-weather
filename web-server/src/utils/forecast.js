@@ -3,7 +3,7 @@ require("dotenv").config();
 
 module.exports  = {
     foreCast: (lat, long, callback) => {
-        const url = `http://api.weatherstack.com/current?access_key=${process.env.ACCESS_KEY}&&query=${lat, long}&units=f`;
+        const url = `http://api.weatherstack.com/current?access_key=${process.env.ACCESS_KEY}&&query=${lat},${long}&units=f`;
         request({ url, json: true }, (err, { body }) => {
             if (err) {
                 callback('Unable to connect to weather service')
