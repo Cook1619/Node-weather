@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
     <title>Weather</title>
 </head>
@@ -14,17 +15,17 @@
 <body>
     <div class="main-content">
         {{>header}}
-        <p>Enter a city name of valid zip-code to check the weather</p>
-
         <form action="">
-            <div class="input-group mb-3">
-                <input type="text" placeholder="Location">
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-lg" placeholder="City Name or Zipcode">
                 <div class="input-group-append">
                     <button class="btn btn-secondary">Search</button>
                 </div>
             </div>
         </form>
-        <div class="card static-card bg-light mt-3" style="max-width: 18rem;">
+
+        <div class="card static-card bg-light mt-3" style="max-width: 51rem;">
             <div class="card-header text-dark">Daily Forecast</div>
             <div class="card-body">
                 <img src="" alt="weather-icon" id="weatherIcon">
@@ -32,22 +33,33 @@
                 <p class="card-text text-dark" id="message-two"></p>
             </div>
         </div>
-        <div class="d-flex flex-wrap justify-content-between">
-            <div class="card bg-light mt-3" style="max-width: 18rem;">
+
+        <div class="card-deck">
+            <div class="card bg-light mt-4" style="max-width: 18rem;">
                 <div class="card-header text-dark">Portland Forecast</div>
                 <div class="card-body">
-
-
+                    <img src="" alt="portland-icon" id="portland-img">
+                    <p class="card-text text-dark" id="portland"></p>
+                    <p class="card-text text-dark" id="portland1"></p>
+                    <p class="card-text text-dark" id="portland2"></p>
+                    <p class="card-text text-dark" id="portland3"></p>
+                    <p class="card-text text-dark" id="portland4"></p>
+                    <p class="card-text text-dark" id="portland5"></p>
                 </div>
             </div>
-            <div class="card bg-light mt-3" style="max-width: 18rem;">
+            <div class="card bg-light mt-4" style="max-width: 18rem;">
                 <div class="card-header text-dark">Minneapolis Forecast</div>
                 <div class="card-body">
-
-
+                    <img src="" alt="minneapolis-icon" id="minneapolis-img">
+                    <p class="card-text text-dark" id="minneapolis"></p>
+                    <p class="card-text text-dark" id="minneapolis1"></p>
+                    <p class="card-text text-dark" id="minneapolis2"></p>
+                    <p class="card-text text-dark" id="minneapolis3"></p>
+                    <p class="card-text text-dark" id="minneapolis4"></p>
+                    <p class="card-text text-dark" id="minneapolis5"></p>
                 </div>
             </div>
-            <div class="card bg-light mt-3" style="max-width: 18rem;">
+            <div class="card bg-light mt-4" style="max-width: 18rem;">
                 <div class="card-header text-dark">New York Forecast</div>
                 <div class="card-body">
                     <img src="" alt="new-york-icon" id="new-york-img">
