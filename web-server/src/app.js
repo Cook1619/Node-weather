@@ -5,6 +5,7 @@ const { newYorkForecast, portlandForecast, minneapolisForecast, foreCast } = req
 const geocode = require("./utils/geocode");
 
 const app = express();
+const PORT = process.env.PORT || 3000
 // This lets you call the views folder whatever you want with handlebars
 // I used templates so I pointed it towards the template directory
 const viewsPath = path.join(__dirname, "../templates/views");
@@ -108,6 +109,6 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("Server is running");
+app.listen(PORT, () => {
+  console.log(`Server is running on on port ${PORT}`);
 });
